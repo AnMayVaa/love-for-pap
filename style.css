@@ -1,0 +1,70 @@
+/* ตั้งค่าพื้นฐาน */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* ซ่อน scrollbar ที่ไม่จำเป็น */
+    font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์น่ารักๆ (ต้อง import) */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); /* พื้นหลังสีชมพู-ส้ม */
+}
+
+/* Import Font จาก Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+/* Container ของข้อความ */
+#falling-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* สไตล์ของแต่ละข้อความที่ตกลงมา */
+.love-message {
+    position: absolute;
+    top: -100px; /* เริ่มต้นจากด้านบนนอกจอ */
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 1.5rem; /* ขนาดตัวอักษร */
+    white-space: nowrap; /* ไม่ให้ข้อความตัดบรรทัด */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fall linear forwards; /* เรียกใช้ animation ชื่อ fall */
+}
+
+/* หน้าจอตอนเริ่มต้น */
+#start-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+}
+
+.start-box h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.start-box p {
+    font-size: 1.2rem;
+}
+
+/* สร้าง Animation ชื่อ fall */
+@keyframes fall {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(120vh); /* ตกลงมาจนสุดขอบจอด้านล่าง */
+    }
+}
